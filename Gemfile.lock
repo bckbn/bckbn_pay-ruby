@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bckbn_pay (0.4.1)
+    bckbn_pay (0.5.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
