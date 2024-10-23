@@ -155,82 +155,6 @@ module BckbnPay
       return data, status_code, headers
     end
 
-    # Create a charge
-    # @param x_api_version [String] 
-    # @param charge_attributes [ChargeAttributes] 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_idempotency_key 
-    # @return [ChargeResponse]
-    def create_charge(x_api_version, charge_attributes, opts = {})
-      data, _status_code, _headers = create_charge_with_http_info(x_api_version, charge_attributes, opts)
-      data
-    end
-
-    # Create a charge
-    # @param x_api_version [String] 
-    # @param charge_attributes [ChargeAttributes] 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_idempotency_key 
-    # @return [Array<(ChargeResponse, Integer, Hash)>] ChargeResponse data, response status code and response headers
-    def create_charge_with_http_info(x_api_version, charge_attributes, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ChargesApi.create_charge ...'
-      end
-      # verify the required parameter 'x_api_version' is set
-      if @api_client.config.client_side_validation && x_api_version.nil?
-        fail ArgumentError, "Missing the required parameter 'x_api_version' when calling ChargesApi.create_charge"
-      end
-      # verify the required parameter 'charge_attributes' is set
-      if @api_client.config.client_side_validation && charge_attributes.nil?
-        fail ArgumentError, "Missing the required parameter 'charge_attributes' when calling ChargesApi.create_charge"
-      end
-      # resource path
-      local_var_path = '/charges'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-      header_params[:'X-Api-Version'] = x_api_version
-      header_params[:'X-Idempotency-Key'] = opts[:'x_idempotency_key'] if !opts[:'x_idempotency_key'].nil?
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(charge_attributes)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ChargeResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"ChargesApi.create_charge",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ChargesApi#create_charge\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Retrieve a charge
     # @param x_api_version [String] 
     # @param id [String] 
@@ -308,6 +232,7 @@ module BckbnPay
     # @option opts [Integer] :page The page of results to retrieve.
     # @option opts [Integer] :per_page Number of results per page.
     # @option opts [String] :sub_merchant_id Filter results by sub_merchant ID.
+    # @option opts [String] :payment_intent_id Filter results by payment intent ID.
     # @return [ListChargesResponse]
     def list_charges(x_api_version, opts = {})
       data, _status_code, _headers = list_charges_with_http_info(x_api_version, opts)
@@ -320,6 +245,7 @@ module BckbnPay
     # @option opts [Integer] :page The page of results to retrieve.
     # @option opts [Integer] :per_page Number of results per page.
     # @option opts [String] :sub_merchant_id Filter results by sub_merchant ID.
+    # @option opts [String] :payment_intent_id Filter results by payment intent ID.
     # @return [Array<(ListChargesResponse, Integer, Hash)>] ListChargesResponse data, response status code and response headers
     def list_charges_with_http_info(x_api_version, opts = {})
       if @api_client.config.debugging
@@ -337,6 +263,7 @@ module BckbnPay
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'per_page'] = opts[:'per_page'] if !opts[:'per_page'].nil?
       query_params[:'sub_merchant_id'] = opts[:'sub_merchant_id'] if !opts[:'sub_merchant_id'].nil?
+      query_params[:'payment_intent_id'] = opts[:'payment_intent_id'] if !opts[:'payment_intent_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

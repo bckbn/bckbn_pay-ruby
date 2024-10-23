@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build bckbn_pay.gemspec
-  - gem install ./bckbn_pay-0.4.1.gem
+  - gem install ./bckbn_pay-0.5.0.gem
