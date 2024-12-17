@@ -31,11 +31,15 @@ module BckbnPay
 
     attr_accessor :funding
 
+    attr_accessor :first6
+
     attr_accessor :last4
 
     attr_accessor :three_d_secure_supported
 
     attr_accessor :token
+
+    attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -48,9 +52,11 @@ module BckbnPay
         :'exp_month' => :'exp_month',
         :'exp_year' => :'exp_year',
         :'funding' => :'funding',
+        :'first6' => :'first6',
         :'last4' => :'last4',
         :'three_d_secure_supported' => :'three_d_secure_supported',
-        :'token' => :'token'
+        :'token' => :'token',
+        :'state' => :'state'
       }
     end
 
@@ -70,9 +76,11 @@ module BckbnPay
         :'exp_month' => :'Integer',
         :'exp_year' => :'Integer',
         :'funding' => :'String',
+        :'first6' => :'String',
         :'last4' => :'String',
         :'three_d_secure_supported' => :'Boolean',
-        :'token' => :'String'
+        :'token' => :'String',
+        :'state' => :'String'
       }
     end
 
@@ -133,6 +141,10 @@ module BckbnPay
         self.funding = attributes[:'funding']
       end
 
+      if attributes.key?(:'first6')
+        self.first6 = attributes[:'first6']
+      end
+
       if attributes.key?(:'last4')
         self.last4 = attributes[:'last4']
       end
@@ -143,6 +155,10 @@ module BckbnPay
 
       if attributes.key?(:'token')
         self.token = attributes[:'token']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
     end
 
@@ -174,9 +190,11 @@ module BckbnPay
           exp_month == o.exp_month &&
           exp_year == o.exp_year &&
           funding == o.funding &&
+          first6 == o.first6 &&
           last4 == o.last4 &&
           three_d_secure_supported == o.three_d_secure_supported &&
-          token == o.token
+          token == o.token &&
+          state == o.state
     end
 
     # @see the `==` method
@@ -188,7 +206,7 @@ module BckbnPay
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [avs_check, avs_check_message, brand, cvc_check, cvc_check_message, exp_month, exp_year, funding, last4, three_d_secure_supported, token].hash
+      [avs_check, avs_check_message, brand, cvc_check, cvc_check_message, exp_month, exp_year, funding, first6, last4, three_d_secure_supported, token, state].hash
     end
 
     # Builds the object from hash

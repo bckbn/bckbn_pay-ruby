@@ -20,7 +20,7 @@ require 'date'
 describe BckbnPay::CreateCustomerRequest do
   let(:instance) { BckbnPay::CreateCustomerRequest.new }
 
-  let(:attributes) { %w[sub_merchant_id name email phone] }
+  let(:attributes) { %w[name email phone] }
 
   describe 'test an instance of CreateCustomerRequest' do
     it 'should create an instance of CreateCustomerRequest' do

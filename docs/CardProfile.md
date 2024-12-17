@@ -12,9 +12,11 @@
 | **exp_month** | **Integer** |  | [optional] |
 | **exp_year** | **Integer** |  | [optional] |
 | **funding** | **String** |  | [optional] |
+| **first6** | **String** |  | [optional] |
 | **last4** | **String** |  | [optional] |
 | **three_d_secure_supported** | **Boolean** |  | [optional] |
 | **token** | **String** |  | [optional] |
+| **state** | **String** |  | [optional] |
 
 ## Example
 
@@ -30,9 +32,11 @@ instance = BckbnPay::CardProfile.new(
   exp_month: null,
   exp_year: null,
   funding: null,
+  first6: null,
   last4: null,
   three_d_secure_supported: null,
-  token: null
+  token: null,
+  state: null
 )
 ```
 

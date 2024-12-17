@@ -131,8 +131,4 @@ lib/bckbn_pay/models/subscription_response.rb
 lib/bckbn_pay/models/webhook_endpoint.rb
 lib/bckbn_pay/models/webhook_request.rb
 lib/bckbn_pay/version.rb
-spec/api/subscriptions_api_spec.rb
-spec/models/subscription_create_request_spec.rb
-spec/models/subscription_create_request_subscription_spec.rb
-spec/models/subscription_response_spec.rb
 spec/spec_helper.rb

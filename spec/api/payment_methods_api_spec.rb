@@ -150,7 +150,6 @@ describe "PaymentMethodsApi" do
         {
           payment_method: {
             type: "Card",
-            sub_merchant_id: "123",
             billing_address_attributes: {
               country: "US",
               postal_code: "78704"
@@ -189,7 +188,6 @@ describe "PaymentMethodsApi" do
         {
           payment_method: {
             type: "BankAccount",
-            sub_merchant_id: "123",
             billing_address_attributes: {
               country: "US",
               postal_code: "78704"

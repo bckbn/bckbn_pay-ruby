@@ -21,11 +21,11 @@ module BckbnPay
 
     attr_accessor :partner_id
 
-    attr_accessor :sub_merchant_id
-
     attr_accessor :created_at
 
     attr_accessor :updated_at
+
+    attr_accessor :customer_id
 
     # Additional metadata key-value pairs
     attr_accessor :metadata
@@ -42,9 +42,9 @@ module BckbnPay
         :'id' => :'id',
         :'type' => :'type',
         :'partner_id' => :'partner_id',
-        :'sub_merchant_id' => :'sub_merchant_id',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at',
+        :'customer_id' => :'customer_id',
         :'metadata' => :'metadata',
         :'billing_address' => :'billing_address',
         :'card_profile' => :'card_profile',
@@ -63,9 +63,9 @@ module BckbnPay
         :'id' => :'String',
         :'type' => :'String',
         :'partner_id' => :'String',
-        :'sub_merchant_id' => :'String',
         :'created_at' => :'Time',
         :'updated_at' => :'Time',
+        :'customer_id' => :'String',
         :'metadata' => :'Hash<String, String>',
         :'billing_address' => :'BillingAddress',
         :'card_profile' => :'CardProfile',
@@ -76,7 +76,6 @@ module BckbnPay
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'sub_merchant_id',
       ])
     end
 
@@ -107,16 +106,16 @@ module BckbnPay
         self.partner_id = attributes[:'partner_id']
       end
 
-      if attributes.key?(:'sub_merchant_id')
-        self.sub_merchant_id = attributes[:'sub_merchant_id']
-      end
-
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
 
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'customer_id')
+        self.customer_id = attributes[:'customer_id']
       end
 
       if attributes.key?(:'metadata')
@@ -161,9 +160,9 @@ module BckbnPay
           id == o.id &&
           type == o.type &&
           partner_id == o.partner_id &&
-          sub_merchant_id == o.sub_merchant_id &&
           created_at == o.created_at &&
           updated_at == o.updated_at &&
+          customer_id == o.customer_id &&
           metadata == o.metadata &&
           billing_address == o.billing_address &&
           card_profile == o.card_profile &&
@@ -179,7 +178,7 @@ module BckbnPay
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, type, partner_id, sub_merchant_id, created_at, updated_at, metadata, billing_address, card_profile, bank_account_profile].hash
+      [id, type, partner_id, created_at, updated_at, customer_id, metadata, billing_address, card_profile, bank_account_profile].hash
     end
 
     # Builds the object from hash

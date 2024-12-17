@@ -26,7 +26,7 @@ describe BckbnPay::PaymentMethodResponse do
     end
   end
 
-  let(:attributes) { %w[type billing_address card_profile bank_account_profile id created_at updated_at metadata partner_id sub_merchant_id] }
+  let(:attributes) { %w[type billing_address card_profile bank_account_profile id created_at updated_at metadata partner_id] }
 
   describe 'test attributes' do
     it 'should respond to all attributes' do

@@ -17,8 +17,6 @@ module BckbnPay
   class PaymentMethodAttributes
     attr_accessor :type
 
-    attr_accessor :sub_merchant_id
-
     attr_accessor :billing_address_attributes
 
     attr_accessor :card_profile_attributes
@@ -29,7 +27,6 @@ module BckbnPay
     def self.attribute_map
       {
         :'type' => :'type',
-        :'sub_merchant_id' => :'sub_merchant_id',
         :'billing_address_attributes' => :'billing_address_attributes',
         :'card_profile_attributes' => :'card_profile_attributes',
         :'bank_account_profile_attributes' => :'bank_account_profile_attributes'
@@ -45,7 +42,6 @@ module BckbnPay
     def self.openapi_types
       {
         :'type' => :'String',
-        :'sub_merchant_id' => :'String',
         :'billing_address_attributes' => :'BillingAddress',
         :'card_profile_attributes' => :'CardProfile',
         :'bank_account_profile_attributes' => :'BankAccountProfile'
@@ -55,7 +51,6 @@ module BckbnPay
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'sub_merchant_id',
       ])
     end
 
@@ -78,10 +73,6 @@ module BckbnPay
         self.type = attributes[:'type']
       else
         self.type = nil
-      end
-
-      if attributes.key?(:'sub_merchant_id')
-        self.sub_merchant_id = attributes[:'sub_merchant_id']
       end
 
       if attributes.key?(:'billing_address_attributes')
@@ -123,7 +114,6 @@ module BckbnPay
       return true if self.equal?(o)
       self.class == o.class &&
           type == o.type &&
-          sub_merchant_id == o.sub_merchant_id &&
           billing_address_attributes == o.billing_address_attributes &&
           card_profile_attributes == o.card_profile_attributes &&
           bank_account_profile_attributes == o.bank_account_profile_attributes
@@ -138,7 +128,7 @@ module BckbnPay
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, sub_merchant_id, billing_address_attributes, card_profile_attributes, bank_account_profile_attributes].hash
+      [type, billing_address_attributes, card_profile_attributes, bank_account_profile_attributes].hash
     end
 
     # Builds the object from hash
